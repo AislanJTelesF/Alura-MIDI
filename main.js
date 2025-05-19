@@ -7,11 +7,20 @@ const listaDeTeclas = document.querySelectorAll('.tecla');
 
 let contador = 0;
 
-while (contador < 9) {
+while (contador < listaDeTeclas.length) {
 
-    listaDeTeclas[contador].onclick = playSound;
+    const tecla = listaDeTeclas[contador];
+
+    const instrumento = tecla.classList[1];
+
+    const idAudio = `#som_${instrumento}`;
+    //console.log(idAudio);
+
+    tecla.onclick = function () {
+        playSound(idAudio);
+    };
 
     contador++;
 
-    console.log(contador);
+    //console.log(contador);
 }
